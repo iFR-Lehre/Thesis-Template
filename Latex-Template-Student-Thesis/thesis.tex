@@ -1,0 +1,82 @@
+\documentclass[ngerman]{ifrthesis} % Use [english] for English version
+
+
+% the preamble is intended to be used to add additional packages and define commands
+\input{preamble.tex}
+
+% Thesis metadata (override defaults if needed)
+\ifrtitle{Your Thesis Title Here}
+\ifrauthor{Your Name Here}
+\ifrtype{Master's Thesis}
+\ifrsupervisor{ Supervisor 1}
+\ifrsupervisor{Supervisor 2}
+\ifrsupervisor{Supervisor 4}
+\ifrexaminer{Examiner}
+
+% Default graphics path
+\graphicspath{{./src/pics/}}
+
+% Default mainmatter path
+\newcommand{\chapterinput}[1]{\input{./src/parts/mainmatter/#1}}
+
+% Default frontmatter path
+\newcommand{\pathfrontmatter}[1]{./src/parts/frontmatter/#1}
+
+% Additional bibliography file
+\addbibresource{src/bib/references.bib}
+
+\begin{document}
+
+%=============================================================================
+% Frontmatter
+%=============================================================================
+\frontmatter
+
+% Title
+\maketitle%
+\cleardoublepage%
+
+% Declaration
+\makedeclaration%
+\cleardoublepage%
+
+%Abstract
+\input{\pathfrontmatter{abstract.tex}}
+\cleardoublepage%
+
+% Table of contents
+\thispagestyle{empty}
+\tableofcontents
+\cleardoublepage%
+
+% List of figures and tables
+\makelistoffigures%
+\cleardoublepage%
+\makelistoftables%
+
+% For automatic nomenclature
+\input{\pathfrontmatter{nomenclature.tex}}
+
+%=============================================================================
+% Mainmatter
+%=============================================================================
+\mainmatter%
+
+\chapterinput{01_chapter.tex}
+\chapterinput{02_chapter.tex}
+\chapterinput{03_chapter.tex}
+\chapterinput{04_chapter.tex}
+
+%=============================================================================
+% Backmatter
+%=============================================================================
+\backmatter%
+
+% Bibliography
+\printbibliography[heading=bibintoc]%
+
+% Appendix
+\appendix
+\input{./src/parts/appendix/appendix.tex}
+
+\end{document}

@@ -1,0 +1,16 @@
+
+\begin{thenomenclature} 
+\nomgroup{A}
+  \item [{KOS}]\begingroup Koordinatensystem\nomeqref {0}\nompageref{1}
+\nomgroup{G}
+  \item [{$\Omega$}]\begingroup \nomenunit{\unitfrac{rad}{s}} Drehgeschwindigkeit des Rotors\nomeqref {0}\nompageref{1}
+  \item [{$\Phi$,$\Theta$,$\Psi$}]\begingroup \nomenunit{\unit{rad}}Rolll-, Nick- und Gierwinkel des Hubschraubers\nomeqref {0}\nompageref{1}
+\nomgroup{L}
+  \item [{$\boldsymbol{r}$}]\begingroup \nomenunit{-}Vektor vom Lasthaken zum Schwerpunkt der Last\nomeqref {0}\nompageref{1}
+  \item [{$_y\boldsymbol{T}_x$}]\begingroup \nomenunit{-}Transformationsmatrix von System x nach System y\nomeqref {0}\nompageref{1}
+\nomgroup{S}
+  \item [{$(\cdot)_L$}]\begingroup Die Last, bzw. Außenlast betreffend\nomeqref {0}\nompageref{1}
+  \item [{$_a(\cdot)$}]\begingroup Aufhängepunktfestes Koordinatensystem\nomeqref {0}\nompageref{1}
+  \item [{$_g(\cdot)$}]\begingroup Geodätisches Koordinatensystem\nomeqref {0}\nompageref{1}
+
+\end{thenomenclature}

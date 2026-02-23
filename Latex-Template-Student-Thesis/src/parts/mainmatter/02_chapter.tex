@@ -1,0 +1,113 @@
+% !TeX root = ../../../Main.tex
+\chapter{Literature Review}
+
+\section{How to use the nomenclature}
+
+The nomenclature entries must all be listed in the \texttt{nomenclature.tex} file located in \texttt{src/parts/frontmatter/}. This file organizes symbols into four categories: Acronyms (A), Latin letters (L), Greek letters (G), and Subscripts/Indices (S).
+
+\subsection*{Entry Format}
+Each nomenclature entry follows this syntax:
+\begin{verbatim}
+\nomenclature[Category]{Symbol}{Description}
+\end{verbatim}
+
+Where \texttt{Category} is one of: \texttt{A} (Acronyms), \texttt{L} (Latin letters), \texttt{G} (Greek letters), or \texttt{S} (Subscripts/Indices).
+
+\subsection*{Examples}
+
+\begin{enumerate}
+    \item \textbf{Acronyms (Category A)}:
+    \begin{verbatim}
+\nomenclature[A]{KOS}{Koordinatensystem}
+    \end{verbatim}
+    This creates an entry for "KOS" with the description "Koordinatensystem".
+    
+    \item \textbf{Latin letters (Category L)}:
+    \begin{verbatim}
+\nomenclature[L]{$\boldsymbol{r}$}{\nomenunit{-}Vektor vom Lasthaken zum Schwerpunkt}
+    \end{verbatim}
+    The \texttt{\textbackslash nomenunit\{\}} command specifies the unit.
+    
+    \item \textbf{Greek letters (Category G)}:
+    \begin{verbatim}
+\nomenclature[G]{$\Omega$}{\nomenunit{\unitfrac{rad}{s}} Drehgeschwindigkeit}
+    \end{verbatim}
+    This adds the Greek letter Omega with its unit and description.
+    
+    \item \textbf{Subscripts/Indices (Category S)}:
+    \begin{verbatim}
+\nomenclature[S]{$_a(\cdot)$}{Aufhängepunktfestes Koordinatensystem}
+    \end{verbatim}
+    This defines the subscript 'a' used in equations throughout the document.
+\end{enumerate}
+
+\subsection*{Important Notes}
+\begin{itemize}
+    \item Always use \texttt{\textbackslash nomenunit\{\}} to specify units, with a hyphen (-) for dimensionless quantities.
+    \item The entries will automatically appear in the appropriate subsection (Abbreviations, Latin letters, etc.) based on their category.
+    \item After adding or modifying entries, you may need to run \texttt{makeindex} to update the nomenclature listing.
+\end{itemize}
+
+% ----------------------------------------------------------------------------------------------
+\section{How to cite from the bibliography file}
+
+Your references are stored in a bibliography file (with extension \texttt{.bib}). In this document template, the bibliography file is located at \texttt{src/bib/references.bib}. Open this file to see how bibliography entries are structured.
+
+A typical bibliography entry looks like this:
+
+\begin{verbatim}    
+@BOOK{Johnson1994,
+  title = {Helicopter theory},
+  publisher = {Dover Publications},
+  year = {1994},
+  author = {Johnson, Wayne},
+  address = {Mineola, NY}
+}
+\end{verbatim}
+
+The entry starts with the document type (\texttt{@article}, \texttt{@book}, \texttt{@inproceedings}, etc.) followed by a citation key (\texttt{Johnson1994}) that you'll use to cite this source in your document.
+
+
+There are two main approaches to building your bibliography:
+
+\subsubsection*{Manual Entry}
+For small bibliographies, you can create entries by hand. This gives you complete control but requires attention to detail. Follow the formats shown in your \texttt{references.bib} file.
+
+\subsubsection*{Automatic Entry (Recommended)}
+For larger bibliographies, use reference management tools to automatically add entries:
+
+\begin{itemize}
+    \item \textbf{Reference managers}: Tools like \href{https://www.zotero.org/}{Zotero}, \href{https://www.mendeley.com/}{Mendeley}, or \href{https://endnote.com/}{EndNote} can export collections as BibTeX files.
+    \item \textbf{DOI to BibTeX}: Use websites like \url{https://doi2bib.org} to convert DOIs to BibTeX entries.
+    \item \textbf{CrossRef}: Visit \url{https://www.crossref.org} to look up and export citations.
+\end{itemize}
+
+
+Always check automatically generated entries for consistency and completeness. Pay special attention to:
+\begin{itemize}
+    \item Proper capitalization (protect with braces, e.g., \texttt{{NASA}})
+    \item Special characters and accents (use proper \LaTeX\ encoding)
+    \item Complete page numbers and DOIs when available
+\end{itemize}
+
+Once you have entries in your bibliography file, you can cite them using various commands. This template uses \texttt{biblatex} with the \texttt{numeric} style, which provides flexible citation options:
+
+
+\begin{table}[H]
+    \centering
+    \caption{Common \texttt{biblatex} citation commands}
+    \label{tbl:citation-commands}
+    \begin{tabular}{lll}
+        \toprule
+        \textbf{Command} & \textbf{Example Usage} & \textbf{Result} \\
+        \midrule
+        \texttt{\textbackslash cite\{key\}} & \texttt{\textbackslash cite\{Fichter2009\}} & \cite{Fichter2009} \\
+        \texttt{\textbackslash textcite\{key\}} & \texttt{\textbackslash textcite\{Fichter2009\}} & Textual: \textcite{Fichter2009} \\
+        \texttt{\textbackslash citeauthor\{key\}} & \texttt{\textbackslash citeauthor\{Fichter2009\}} & Only authors: \citeauthor{Fichter2009} \\
+        \texttt{\textbackslash citeyear\{key\}} & \texttt{\textbackslash citeyear\{Fichter2009\}} & Only year: \citeyear{Fichter2009} \\
+        \texttt{\textbackslash cite[42]\{key\}} & \texttt{\textbackslash cite[42]\{Fichter2009\}} & With page number: \cite[42]{Fichter2009} \\
+        \texttt{\textbackslash cite[see][]\{key\}} & \texttt{\textbackslash cite[see][42]\{Fichter2009\}} & With pre/post notes: \cite[see][42]{Fichter2009} \\
+        \texttt{\textbackslash cite\{key1,key2\}} & \texttt{\textbackslash cite\{Fichter2009,Johnson1994\}} & Multiple: \cite{Fichter2009,Johnson1994} \\
+        \bottomrule
+    \end{tabular}
+\end{table}

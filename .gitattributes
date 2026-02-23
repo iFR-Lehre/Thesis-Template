@@ -1,0 +1,14 @@
+# Ensure all text files (like .tex) are normalized to LF in the repo
+* text=auto eol=lf
+
+# Explicitly mark common LaTeX file types as text
+*.tex text
+*.bib text
+*.cls text
+*.sty text
+
+# Prevent binary files from being corrupted by accidental conversions
+*.png binary
+*.jpg binary
+*.pdf binary
+*.eps binary

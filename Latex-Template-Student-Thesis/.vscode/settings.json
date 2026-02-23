@@ -1,0 +1,66 @@
+{
+    // ==============================================
+    // LaTeX WORKSHOP CONFIGURATION
+    // Optimized for pdflatex with BibTeX bibliography
+    // Using latexmk for full builds
+    // ==============================================
+
+    // AUTOMATION SETTINGS
+    // ----------------------------------------------------------------
+    "latex-workshop.latex.autoBuild.run": "onSave",
+
+    // DEFAULT BUILD RECIPE
+    // ----------------------------------------------------------------
+    // Quick compilation: Single pdflatex pass only
+    //"latex-workshop.latex.recipe.default": "quick-preview",
+    "latex-workshop.latex.recipe.default": "full-build",
+
+    // AVAILABLE BUILD RECIPES
+    // ----------------------------------------------------------------
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "quick-preview",
+            "tools": ["pdflatex"]
+        },
+        {
+            "name": "full-build",
+            "tools": ["latexmk-full"]
+        }
+    ],
+
+    // TOOL DEFINITIONS
+    // ----------------------------------------------------------------
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "latexmk-full",
+            "command": "latexmk",
+            "args": [
+                "--shell-escape",
+                "--file-line-error",
+                "--synctex=-1",
+                "-interaction=nonstopmode",
+                "-pdf",           // Use pdflatex
+                "-bibtex",        // Enable BibTeX processing
+                "-pdflatex=pdflatex",
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ],
+
+    // ERROR/INFORMATION HANDLING
+    // ----------------------------------------------------------------
+    "latex-workshop.message.error.show": true,
+    "latex-workshop.message.warning.show": true
+}
