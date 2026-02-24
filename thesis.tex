@@ -22,6 +22,9 @@
 % Default frontmatter path
 \newcommand{\pathfrontmatter}[1]{./src/parts/frontmatter/#1}
 
+% Declaration page command
+\input{\pathfrontmatter{declaration/declaration_command.tex}}
+
 % Additional bibliography file
 \addbibresource{src/bib/references.bib}
 
@@ -37,7 +40,7 @@
 \cleardoublepage%
 
 % Declaration
-\makedeclaration%
+\makedeclaration{\ifrauthor}%
 \cleardoublepage%
 
 %Abstract
