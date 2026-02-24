@@ -30,7 +30,14 @@
 % -----------------------------------------------------------------------------
 % Load base class with fixed options
 % -----------------------------------------------------------------------------
-\LoadClass[a4paper, 11pt, DIV=14, chapterprefix=false, BCOR=5mm, twoside, openright]{scrbook}
+\LoadClass[a4paper,
+            11pt,
+            DIV=14, % divisor for construction of type area
+            BCOR=5mm, % binding correction
+            twoside,
+            openright,
+            bibliography=totoc % include bibliography in table of contents
+            ]{scrbook}
 
 % Load the required language package
 \RequirePackage[\@ifrlang]{babel} 
@@ -245,22 +252,22 @@
 % -----------------------------------------------------------------------------
 
 \newcommand{\MLUniversity}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Universität Stuttgart}%
     {University of Stuttgart}%
 }
 \newcommand{\MLInstitute}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Institut für Flugmechanik und Flugregelung}%
     {Institute of Flight Mechanics and Controls}%
 }
 \newcommand{\MLMastersthesis}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Masterarbeit}%
     {Master's Thesis}%
 }
 \newcommand{\MLBachelorsthesis}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Bachelorarbeit}%
     {Bachelor's Thesis}%
 }
@@ -274,11 +281,6 @@
   {\begin{otherlanguage}{english}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
   {\begin{otherlanguage}{ngerman}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
 }
-
-% -----------------------------------------------------------------------------
-% Include blindtext for testing
-% -----------------------------------------------------------------------------
-\RequirePackage{blindtext}
 
 % -----------------------------------------------------------------------------
 % List of figures and tables
@@ -330,7 +332,7 @@
                 \vspace{3cm}
                 {\large
                 \begin{tabular}{@{}r l@{}}
-                    \ifdefstring{\@ifrlang}{ngerman}%
+                    \iflanguage{ngerman}
                     {Betreuer}%
                     {Supervisors}: 
                     & \ifx\@ifrsupervisor\@empty
@@ -341,7 +343,7 @@
                         }%
                       \fi
                     \\
-                    \ifdefstring{\@ifrlang}{ngerman}%
+                    \iflanguage{ngerman}
                     {Prüfer}%
                     {Examiner}: & \@ifrexaminer
                 \end{tabular}
