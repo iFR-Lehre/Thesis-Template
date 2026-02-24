@@ -450,52 +450,40 @@
 % -----------------------------------------------------------------------------
 
 \newcommand{\makedeclaration}{%
-    \addchap{\iflanguage{ngerman}%
-        {Erklärung}%
-        {Declaration}%
-    }
+    \addchap{Erklärungen für Abschlussarbeiten am iFR}
 
-    \addsec*{\ifdefstring{\@ifrlang}{ngerman}%
-        {Urheberrecht}%
-        {Copyright}%
-        }
+    \addsec*{Erklärungen bei Ausgabe des Themas der Arbeit}
 
-    \ifdefstring{\@ifrlang}{ngerman}{%
-        Hiermit versichere ich, dass ich diese Arbeit selbständig mit Unterstützung der Betreuer angefertigt und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.
-        Die Arbeit oder wesentliche Bestandteile davon sind weder an dieser noch an einer anderen Bildungseinrichtung bereits zur Erlangung eines Abschlusses eingereicht worden.\\
-        \\
-        Ich erkläre weiterhin, bei der Erstellung der Arbeit die einschlägigen Bestimmungen, insbesondere zum Urheberrechtsschutz fremder Beiträge, entsprechend den Regeln guter wissenschaftlicher Praxis\footnote{siehe \enquote{Leitlinien zur Sicherung guter wissenschaftlicher Praxis} der DFG bzw. \enquote{Satzung der Universität Stuttgart zur Sicherung der Integrität wissenschaftlicher Praxis und zum Umgang mit Fehlverhalten in der Wissenschaft}} eingehalten zu haben.
-        Soweit meine Arbeit fremde Beiträge (z.B. in der Form von Bildern, Zeichnungen, Textpassagen) enthält, habe ich diese Beiträge als solche gekennzeichnet (z.B. Zitat, Quellenangabe) und eventuell erforderlich gewordene Zustimmungen der Urheber zur Nutzung dieser Beiträge in meiner Arbeit eingeholt.
-        Für den Fall der Verletzung der Rechte Dritter durch meine Arbeit, erkläre ich mich bereit, der Universität Stuttgart einen daraus entstehenden Schaden zu ersetzen bzw. die Universität Stuttgart auf deren Aufforderung von eventuellen Ansprüchen Dritter freizustellen.
-    }{%
-        I hereby declare that I have written this thesis independently with the support of the supervisors and that I have not used any sources or aids other than those specified.
-        Neither the full thesis nor any significant parts of it have already been submitted to this or any other educational institution to obtain a degree.\\
-        \\
-        I further declare that I have complied with the relevant provisions for the preparation of this thesis, especially regarding copyright protection of third-party contributions, in accordance with the rules of good scientific practice\footnote{cf. \enquote{Leitlinien zur Sicherung guter wissenschaftlicher Praxis} of the DFG or \enquote{Satzung der Universität Stuttgart zur Sicherung der Integrität wissenschaftlicher Praxis und zum Umgang mit Fehlverhalten in der Wissenschaft}}.
-        Insofar as my work contains third-party contributions (e.g. in the form of images, drawings, text passages), I have marked these contributions as such (e.g. citation, source reference) and obtained any necessary consent from the authors to use their contributions in my work.
-        In the event of infringement of the rights of third parties by my work, I declare myself willing to compensate the University of Stuttgart for any resulting damage and to indemnify the University of Stuttgart against any claims by third parties upon their request.
-    }
-    
-    \addsec*{\ifdefstring{\@ifrlang}{ngerman}{Nutzungsrecht}{Right of Use}}
-    \ifdefstring{\@ifrlang}{ngerman}{%
-        Mir ist bekannt, dass die Arbeit im Online-Katalog der Bibliothek und auf der Institutswebseite erfasst wird, was eine dauerhafte, weltweite Sichtbarkeit der bibliographischen Daten der Arbeit zur Folge hat.
-        \begin{itemize}
-            \item[\raisebox{-3pt}{\huge$\square$}] Ich stimme der Nennung meines Namens und einer Kurzfassung der Arbeit zu diesem Zweck zu.
-            \item[\raisebox{-3pt}{\huge$\square$}] Ich übertrage der Universität Stuttgart das Eigentum an einem von mir der Bibliothek des Instituts für Flugmechanik und Flugregelung kostenlos zur Verfügung gestellten Exemplars dieser Arbeit.
-            Ich räume der Universität Stuttgart, Institut für Flugmechanik und Flugregelung, an dieser Arbeit und den im Rahmen dieser Arbeit entstandenen Arbeitsergebnissen ein kostenloses, zeitlich und räumlich unbeschränktes, einfaches Nutzungsrecht ein.
-            Dieses erstreckt sich auf sämtliche bekannte Nutzungsarten und umfasst neben dem Recht auf Nutzung in Forschung, Lehre und Studium insbesondere das Recht der Vervielfältigung, Verbreitung und Änderung sowie das Recht der öffentlichen Zugänglichmachung.
-        \end{itemize}
-    }{%
-        I am aware that the thesis will be recorded in the online catalog of the library and on the institute's website, which will result in permanent, worldwide visibility of the bibliographic data of the thesis.
-        \begin{itemize}
-            \item[\raisebox{-3pt}{\huge$\square$}] I agree to have my name and an abstract of the thesis mentioned for this purpose.
-            \item[\raisebox{-3pt}{\huge$\square$}] I transfer ownership of a copy of this thesis to the University of Stuttgart, which I will provide free of charge to the library of the Institute of Flight Mechanics and Controls.
-            I grant the University of Stuttgart, Institute of Flight Mechanics and Flight Control, a free, simple right of use, unlimited in time and space, to this thesis and the results produced in the course of this thesis.
-            This extends to all known types of use and, in addition to the right to use in research, teaching, and study, includes in particular the right to reproduce, distribute, and modify the work, as well as the right to make it publicly available.
-        \end{itemize}
-    }
-    
+    Mir ist bekannt, dass die Arbeit im Online-Katalog der Bibliothek und auf der Institutswebseite erfasst wird, was eine dauerhafte, weltweite Sichtbarkeit der bibliographischen Daten der Arbeit zur Folge hat.
+    \begin{itemize}
+        \item[\raisebox{-3pt}{\huge$\square$}] Ich stimme der Nennung meines Namens und einer Kurzfassung der Arbeit zu diesem Zweck zu.
+        \item[\raisebox{-3pt}{\huge$\square$}] Ich räume der Universität Stuttgart, Institut für Flugmechanik und Flugregelung, an dieser Arbeit und den im Rahmen dieser Arbeit entstandenen Arbeitsergebnissen ein kostenloses, zeitlich und räumlich unbeschränktes, einfaches Nutzungsrecht ein.
+        Dieses erstreckt sich auf sämtliche bekannte Nutzungsarten und umfasst neben dem Recht auf Nutzung in Forschung, Lehre und Studium insbesondere das Recht der Vervielfältigung, Verbreitung und Änderung sowie das Recht der öffentlichen Zugänglichmachung.
+    \end{itemize}
+
     \vspace{1cm}
+    \parbox{7cm}{
+        \hrule
+        \strut \centering\footnotesize \ifdefstring{\@ifrlang}{ngerman}{Ort, Datum}{Place, Date}
+    }
+    \hfill
+    \parbox{7cm}{
+        \hrule
+        \strut \centering\footnotesize \@ifrauthor
+    }
+
+    \addsec*{Erklärungen bei Abgabe der Arbeit}
+
+    Hiermit versichere ich, dass ich diese Arbeit selbständig mit Unterstützung der Betreuer angefertigt und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.
+    Die Arbeit oder wesentliche Bestandteile davon sind weder an dieser noch an einer anderen Bildungseinrichtung bereits Gegenstand einer Prüfungsleistung gewesen und wurden nicht ohne Zustimmung der Prüferin bzw. des Prüfers bereits veröffentlicht.
+    Ich erkläre weiterhin, bei der Erstellung der Arbeit die einschlägigen Bestimmungen entsprechend den Regeln guter wissenschaftlicher Praxis\footnote{siehe \enquote{Leitlinien zur Sicherung guter wissenschaftlicher Praxis} der DFG bzw. \enquote{Satzung der Universität Stuttgart zur Sicherung der Integrität wissenschaftlicher Praxis und zum Umgang mit Fehlverhalten in der Wissenschaft}} eingehalten zu haben.
+    Ich übertrage der Universität Stuttgart das Eigentum an einem von mir der Bibliothek des Instituts für Flugmechanik und Flugregelung kostenlos zur Verfügung gestellten Exemplars dieser Arbeit und versichere, dass dieses Exemplar mit der digitalen Abgabe der Arbeit übereinstimmt.\\
+    \\
+    Fremde Beiträge (z.B. in der Form von Bildern, Zeichnungen, Textpassagen) habe ich als solche gekennzeichnet (z.B. Zitat, Quellenangabe).
+    Sollte ich der Universität Stuttgart, Institut für Flugmechanik und Flugregelung, Nutzungsrechte an dieser Arbeit und den im Rahmen dieser Arbeit entstandenen Arbeitsergebnissen eingeräumt haben, versichere ich, eventuell erforderlich gewordene Zustimmungen der Urheber zur Nutzung fremder Beiträge in meiner Arbeit eingeholt zu haben.
+    Ich erkläre mich für den Fall der Verletzung der Rechte Dritter durch meine Arbeit bereit, der Universität Stuttgart einen daraus entstehenden Schaden zu ersetzen bzw. die Universität Stuttgart auf deren Aufforderung von eventuellen Ansprüchen Dritter freizustellen.
+    
+    \vspace{1.5cm}
     \parbox{7cm}{
         \hrule
         \strut \centering\footnotesize \ifdefstring{\@ifrlang}{ngerman}{Ort, Datum}{Place, Date}
