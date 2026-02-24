@@ -12,8 +12,8 @@
     // DEFAULT BUILD RECIPE
     // ----------------------------------------------------------------
     // Quick compilation: Single pdflatex pass only
-    //"latex-workshop.latex.recipe.default": "quick-preview",
-    "latex-workshop.latex.recipe.default": "full-build",
+    "latex-workshop.latex.recipe.default": "quick-preview",
+    //"latex-workshop.latex.recipe.default": "full-build",
 
     // AVAILABLE BUILD RECIPES
     // ----------------------------------------------------------------
