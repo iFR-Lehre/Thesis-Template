@@ -52,7 +52,6 @@
                 "-interaction=nonstopmode",
                 "-pdf",           // Use pdflatex
                 "-bibtex",        // Enable BibTeX processing
-                "-pdflatex=pdflatex",
                 "%DOC%"
             ],
             "env": {}
