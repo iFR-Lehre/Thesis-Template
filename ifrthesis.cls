@@ -450,14 +450,14 @@
 % -----------------------------------------------------------------------------
 
 \newcommand{\makedeclaration}{%
-    \addchap{Erklärungen für Abschlussarbeiten am iFR}
+    \addchap[Erklärungen]{Erklärungen für Abschlussarbeiten am iFR}
 
     \addsec*{Erklärungen bei Ausgabe des Themas der Arbeit}
 
     Mir ist bekannt, dass die Arbeit im Online-Katalog der Bibliothek und auf der Institutswebseite erfasst wird, was eine dauerhafte, weltweite Sichtbarkeit der bibliographischen Daten der Arbeit zur Folge hat.
     \begin{itemize}
         \item[\raisebox{-3pt}{\huge$\square$}] Ich stimme der Nennung meines Namens und einer Kurzfassung der Arbeit zu diesem Zweck zu.
-        \item[\raisebox{-3pt}{\huge$\square$}] Ich räume der Universität Stuttgart, Institut für Flugmechanik und Flugregelung, an dieser Arbeit und den im Rahmen dieser Arbeit entstandenen Arbeitsergebnissen ein kostenloses, zeitlich und räumlich unbeschränktes, einfaches Nutzungsrecht ein.
+        \item[\raisebox{-3pt}{\huge$\square$}] Ich räume der Universität Stuttgart, Institut für Flugmechanik und Flugregelung, an dieser Arbeit und den im Rahmen dieser Arbeit entstandenen Ergebnissen ein kostenloses, zeitlich und räumlich unbeschränktes, einfaches Nutzungsrecht ein.
         Dieses erstreckt sich auf sämtliche bekannte Nutzungsarten und umfasst neben dem Recht auf Nutzung in Forschung, Lehre und Studium insbesondere das Recht der Vervielfältigung, Verbreitung und Änderung sowie das Recht der öffentlichen Zugänglichmachung.
     \end{itemize}
 
@@ -475,15 +475,16 @@
     \addsec*{Erklärungen bei Abgabe der Arbeit}
 
     Hiermit versichere ich, dass ich diese Arbeit selbständig mit Unterstützung der Betreuer angefertigt und keine anderen als die angegebenen Quellen und Hilfsmittel verwendet habe.
+    Fremde Beiträge habe ich als solche gekennzeichnet.
     Die Arbeit oder wesentliche Bestandteile davon sind weder an dieser noch an einer anderen Bildungseinrichtung bereits Gegenstand einer Prüfungsleistung gewesen und wurden nicht ohne Zustimmung der Prüferin bzw. des Prüfers bereits veröffentlicht.
-    Ich erkläre weiterhin, bei der Erstellung der Arbeit die einschlägigen Bestimmungen entsprechend den Regeln guter wissenschaftlicher Praxis\footnote{siehe \enquote{Leitlinien zur Sicherung guter wissenschaftlicher Praxis} der DFG bzw. \enquote{Satzung der Universität Stuttgart zur Sicherung der Integrität wissenschaftlicher Praxis und zum Umgang mit Fehlverhalten in der Wissenschaft}} eingehalten zu haben.
-    Ich übertrage der Universität Stuttgart das Eigentum an einem von mir der Bibliothek des Instituts für Flugmechanik und Flugregelung kostenlos zur Verfügung gestellten Exemplars dieser Arbeit und versichere, dass dieses Exemplar mit der digitalen Abgabe der Arbeit übereinstimmt.\\
+    Ich erkläre weiterhin, bei der Erstellung der Arbeit die einschlägigen Bestimmungen entsprechend den Regeln guter wissenschaftlicher Praxis\footnote{Siehe \enquote{Leitlinien zur Sicherung guter wissenschaftlicher Praxis} der DFG bzw. \enquote{Satzung der Universität Stuttgart zur Sicherung der Integrität wissenschaftlicher Praxis und zum Umgang mit Fehlverhalten in der Wissenschaft}.} eingehalten zu haben.
+    Ich versichere, dass alle gedruckten Exemplare mit der digitalen Abgabe der Arbeit übereinstimmen.\\
     \\
-    Fremde Beiträge (z.B. in der Form von Bildern, Zeichnungen, Textpassagen) habe ich als solche gekennzeichnet (z.B. Zitat, Quellenangabe).
-    Sollte ich der Universität Stuttgart, Institut für Flugmechanik und Flugregelung, Nutzungsrechte an dieser Arbeit und den im Rahmen dieser Arbeit entstandenen Arbeitsergebnissen eingeräumt haben, versichere ich, eventuell erforderlich gewordene Zustimmungen der Urheber zur Nutzung fremder Beiträge in meiner Arbeit eingeholt zu haben.
+    Sollte ich der Universität Stuttgart, Institut für Flugmechanik und Flugregelung, Nutzungsrechte an dieser Arbeit und den im Rahmen dieser Arbeit entstandenen Ergebnissen eingeräumt haben, versichere ich, eventuell erforderlich gewordene Zustimmungen der Urheber zur Nutzung fremder Beiträge in meiner Arbeit eingeholt zu haben.
     Ich erkläre mich für den Fall der Verletzung der Rechte Dritter durch meine Arbeit bereit, der Universität Stuttgart einen daraus entstehenden Schaden zu ersetzen bzw. die Universität Stuttgart auf deren Aufforderung von eventuellen Ansprüchen Dritter freizustellen.
+    Zusätzlich zu den vom Prüfer geforderten Exemplaren, übertrage ich der Universität Stuttgart das Eigentum an einem von mir der Bibliothek des Instituts für Flugmechanik und Flugregelung kostenlos zur Verfügung gestellten Exemplar dieser Arbeit.
     
-    \vspace{1.5cm}
+    \vspace{1cm}
     \parbox{7cm}{
         \hrule
         \strut \centering\footnotesize \ifdefstring{\@ifrlang}{ngerman}{Ort, Datum}{Place, Date}
