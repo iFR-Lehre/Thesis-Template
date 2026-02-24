@@ -353,7 +353,7 @@
 }
 \newcommand{\MLOtherlangAbstract}[1]{%
   \ifthenelse{\equal{\@ifrlang}{ngerman}}%
-  {\begin{otherlanguage}{UKenglish}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
+  {\begin{otherlanguage}{english}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
   {\begin{otherlanguage}{ngerman}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
 }
 
