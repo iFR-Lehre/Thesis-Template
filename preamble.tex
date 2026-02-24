@@ -1,1 +1,66 @@
-% This file is intended to be use to add packages and create new commands
+\usepackage{todonotes} % for note taking
+
+% -----------------------------------------------------------------------------
+% Graphics and figures
+% -----------------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{pdfpages}   % insert pdfs
+\usepackage{subcaption} % for subfigure environment
+\usepackage{rotating}   % for sidewaysfigure environment
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{float}
+
+% TikZ libraries
+\usetikzlibrary{
+    plotmarks,
+    shapes,
+    arrows.meta,
+    decorations.markings,
+    patterns,
+    calc
+}
+
+% -----------------------------------------------------------------------------
+% Mathematics
+% -----------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}  
+\allowdisplaybreaks % allow page breaks in multiline equations
+
+% -----------------------------------------------------------------------------
+% Tables
+% -----------------------------------------------------------------------------
+\usepackage{booktabs}
+
+% -----------------------------------------------------------------------------
+% Code listings
+% -----------------------------------------------------------------------------
+\usepackage{verbatim} % for code
+\usepackage[numbered,framed]{matlab-prettifier} % for MATLAB code
+
+\lstset{
+    style              = Matlab-editor,
+    basicstyle         = \linespread{0.9}\small\mlttfamily,
+    escapechar         = ",
+    mlshowsectionrules = true,
+}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+% -----------------------------------------------------------------------------
+% URL handling
+% -----------------------------------------------------------------------------
+\usepackage{url}

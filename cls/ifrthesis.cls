@@ -44,10 +44,7 @@
 % -----------------------------------------------------------------------------
 % Font configuration
 % -----------------------------------------------------------------------------
-%\RequirePackage{lmodern}  % solves pixelated font problems
-%\RequirePackage{helvet}   % use helvetica font for sans serif
 %\renewcommand{\familydefault}{\sfdefault}
-%\RequirePackage[T1]{fontenc}
 \RequirePackage{newtxtext}
 \RequirePackage[varl,scaled=.9]{inconsolata}
 
@@ -55,96 +52,17 @@
 % Page layout and typography
 % -----------------------------------------------------------------------------
 \RequirePackage[defaultlines=3,all]{nowidow} % no orphan or widow lines
-%\RequirePackage[headings]{fullpage}
-%\RequirePackage[margin=1in]{geometry}
-\RequirePackage{setspace} % line spacing
-\RequirePackage{multicol} % for multicols
-\RequirePackage{todonotes} % for note taking
-
-% -----------------------------------------------------------------------------
-% Graphics and figures
-% -----------------------------------------------------------------------------
-\RequirePackage{graphicx}
-\RequirePackage{xcolor}
-\RequirePackage{pdfpages}   % insert pdfs
-\RequirePackage{subcaption} % for subfigure environment
-\RequirePackage{rotating}   % for sidewaysfigure environment
-\RequirePackage{pgfplots}
-\RequirePackage{tikz}
-\RequirePackage{float}
-
-% TikZ libraries
-\usetikzlibrary{
-    plotmarks,
-    shapes,
-    arrows.meta,
-    decorations.markings,
-    patterns,
-    calc
-}
-
-% -----------------------------------------------------------------------------
-% Mathematics
-% -----------------------------------------------------------------------------
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-\RequirePackage{mathtools}
-\RequirePackage{tensor}   
-\RequirePackage{cancel}   
-\allowdisplaybreaks
 
 % -----------------------------------------------------------------------------
 % Tables
 % -----------------------------------------------------------------------------
-\RequirePackage{tabularx}
-\RequirePackage{booktabs}
-\RequirePackage{longtable}
-
-% Column type for title page
-\newcolumntype{K}[1]{>{\centering\arraybackslash}b{#1}}
-
-% -----------------------------------------------------------------------------
-% Code listings
-% -----------------------------------------------------------------------------
-\RequirePackage{verbatim} % for code
-\RequirePackage[numbered,framed]{matlab-prettifier} % for MATLAB code
-
-\lstset{
-    style              = Matlab-editor,
-    basicstyle         = \linespread{0.9}\small\mlttfamily,
-    escapechar         = ",
-    mlshowsectionrules = true,
-}
-
-\lstset{literate=%
-    {Ö}{{\"O}}1
-    {Ä}{{\"A}}1
-    {Ü}{{\"U}}1
-    {ß}{{\ss}}1
-    {ü}{{\"u}}1
-    {ä}{{\"a}}1
-    {ö}{{\"o}}1
-    {~}{{\textasciitilde}}1
-}
+\RequirePackage{tabularx} % necessary for table on title page
 
 % -----------------------------------------------------------------------------
 % Bibliography
 % -----------------------------------------------------------------------------
 \RequirePackage{csquotes}
 \RequirePackage[backend=biber,style=numeric]{biblatex}
-
-
-% -----------------------------------------------------------------------------
-% URL handling
-% -----------------------------------------------------------------------------
-\RequirePackage{url}
-
-% -----------------------------------------------------------------------------
-% Headers and footers
-% -----------------------------------------------------------------------------
-\RequirePackage{scrlayer-scrpage} % header and footer
-\pagestyle{headings}
 
 % -----------------------------------------------------------------------------
 % Nomenclature (commented out as per original)
@@ -347,12 +265,12 @@
     {Bachelor's Thesis}%
 }
 \newcommand{\MLAbstract}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Kurzfassung}%
     {Abstract}%
 }
 \newcommand{\MLOtherlangAbstract}[1]{%
-  \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
   {\begin{otherlanguage}{english}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
   {\begin{otherlanguage}{ngerman}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
 }
@@ -383,6 +301,10 @@
 % -----------------------------------------------------------------------------
 % Title page creation
 % -----------------------------------------------------------------------------
+
+% Column type for title page
+\newcolumntype{K}[1]{>{\centering\arraybackslash}b{#1}}
+
 \renewcommand{\maketitle}{%
     \begin{titlepage}
         \vspace*{2cm}
@@ -409,7 +331,7 @@
                 {\large
                 \begin{tabular}{@{}r l@{}}
                     \ifdefstring{\@ifrlang}{ngerman}%
-                    {Vorgesetzter}%
+                    {Betreuer}%
                     {Supervisors}: 
                     & \ifx\@ifrsupervisor\@empty
                         \textbf{No supervisors specified}%
@@ -420,7 +342,7 @@
                       \fi
                     \\
                     \ifdefstring{\@ifrlang}{ngerman}%
-                    {Prüfen}%
+                    {Prüfer}%
                     {Examiner}: & \@ifrexaminer
                 \end{tabular}
                 }
