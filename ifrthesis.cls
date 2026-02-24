@@ -464,7 +464,7 @@
     \vspace{1cm}
     \parbox{7cm}{
         \hrule
-        \strut \centering\footnotesize \ifdefstring{\@ifrlang}{ngerman}{Ort, Datum}{Place, Date}
+        \strut \centering\footnotesize Ort, Datum
     }
     \hfill
     \parbox{7cm}{
@@ -487,7 +487,7 @@
     \vspace{1cm}
     \parbox{7cm}{
         \hrule
-        \strut \centering\footnotesize \ifdefstring{\@ifrlang}{ngerman}{Ort, Datum}{Place, Date}
+        \strut \centering\footnotesize Ort, Datum
     }
     \hfill
     \parbox{7cm}{
