@@ -1,9 +1,14 @@
-% !TeX root = ../../../Main.tex
 \chapter{Literature Review}
 
 \section{How to use the nomenclature}
 
-The nomenclature entries must all be listed in the \texttt{nomenclature.tex} file located in \texttt{src/parts/frontmatter/}. This file organizes symbols into four categories: Acronyms (A), Latin letters (L), Greek letters (G), and Subscripts/Indices (S).
+The nomenclature entries can be added from anywhere in the document and must be assigned to one of the four categories:
+\begin{enumerate}[label=\emph{\Alph*}]
+    \item Abbreviations,
+    \item Latin Letters,
+    \item Greek Letters,
+    \item Indices
+\end{enumerate}
 
 \subsection*{Entry Format}
 Each nomenclature entry follows this syntax:
@@ -11,42 +16,40 @@ Each nomenclature entry follows this syntax:
 \nomenclature[Category]{Symbol}{Description}
 \end{verbatim}
 
-Where \texttt{Category} is one of: \texttt{A} (Acronyms), \texttt{L} (Latin letters), \texttt{G} (Greek letters), or \texttt{S} (Subscripts/Indices).
+Where \texttt{Category} is one of: \texttt{A} (Abbreviations), \texttt{B} (Latin letters), \texttt{C} (Greek letters), or \texttt{D} (Indices).
 
 \subsection*{Examples}
 
 \begin{enumerate}
-    \item \textbf{Acronyms (Category A)}:
+    \item \textbf{Abbreviations (Category A)}:
     \begin{verbatim}
 \nomenclature[A]{KOS}{Koordinatensystem}
     \end{verbatim}
+    \nomenclature[A]{KOS}{Koordinatensystem}
     This creates an entry for "KOS" with the description "Koordinatensystem".
     
-    \item \textbf{Latin letters (Category L)}:
+    \item \textbf{Latin letters (Category B)}:
     \begin{verbatim}
-\nomenclature[L]{$\boldsymbol{r}$}{\nomenunit{-}Vektor vom Lasthaken zum Schwerpunkt}
+\nomenclature[B]{$\boldsymbol{r}$}{Vektor vom Lasthaken zum Schwerpunkt}
     \end{verbatim}
-    The \texttt{\textbackslash nomenunit\{\}} command specifies the unit.
+    \nomenclature[B]{$\boldsymbol{r}$}{Vektor vom Lasthaken zum Schwerpunkt}
     
-    \item \textbf{Greek letters (Category G)}:
+    \item \textbf{Greek letters (Category C)}:
     \begin{verbatim}
-\nomenclature[G]{$\Omega$}{\nomenunit{\unitfrac{rad}{s}} Drehgeschwindigkeit}
+\nomenclature[C]{$\Omega$}{Drehgeschwindigkeit (\si{\radian\per\second})}
     \end{verbatim}
-    This adds the Greek letter Omega with its unit and description.
+    \nomenclature[C]{$\Omega$}{Drehgeschwindigkeit (\si{\radian\per\second})}
+    This adds the Greek letter Omega with its description.
+    Some authors like to add the quantity's unit in the nomenclature as well.
+    Here, this is done in parentheses as part of the description. 
     
-    \item \textbf{Subscripts/Indices (Category S)}:
+    \item \textbf{Indices (Category D)}:
     \begin{verbatim}
-\nomenclature[S]{$_a(\cdot)$}{Aufhängepunktfestes Koordinatensystem}
+\nomenclature[D]{$_g(\cdot)$}{Geodätisches Koordinatensystem}
     \end{verbatim}
-    This defines the subscript 'a' used in equations throughout the document.
+    \nomenclature[D]{$_g(\cdot)$}{Geodätisches Koordinatensystem}
+    This defines the subscript 'g' used in equations throughout the document.
 \end{enumerate}
-
-\subsection*{Important Notes}
-\begin{itemize}
-    \item Always use \texttt{\textbackslash nomenunit\{\}} to specify units, with a hyphen (-) for dimensionless quantities.
-    \item The entries will automatically appear in the appropriate subsection (Abbreviations, Latin letters, etc.) based on their category.
-    \item After adding or modifying entries, you may need to run \texttt{makeindex} to update the nomenclature listing.
-\end{itemize}
 
 % ----------------------------------------------------------------------------------------------
 \section{How to cite from the bibliography file}
@@ -111,3 +114,11 @@ Once you have entries in your bibliography file, you can cite them using various
         \bottomrule
     \end{tabular}
 \end{table}
+
+\section{Important Notes}
+\begin{itemize}
+    \item Nomenclature entries will automatically appear in the appropriate subsection (Abbreviations, Latin letters, etc.) based on their category.
+    \item For this document, the bibliography items are sorted in the order they are cited in the text.
+    \item A single run of \texttt{pdflatex} is generally neither sufficient to correctly update nomenclature and bibliography lists nor add new citations in the text.
+    Use the \texttt{latexmk} tool (as with the \texttt{full-build} recipe provided in this repository) whenever you add or modify entries to ensure they are properly generated and included in the document.
+\end{itemize}

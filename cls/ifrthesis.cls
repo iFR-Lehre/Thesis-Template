@@ -69,144 +69,27 @@
 % Bibliography
 % -----------------------------------------------------------------------------
 \RequirePackage{csquotes}
-\RequirePackage[backend=biber,style=numeric]{biblatex}
+\RequirePackage[backend=biber,
+                style=numeric,
+                sorting=none]{biblatex}
 
 % -----------------------------------------------------------------------------
-% Nomenclature (commented out as per original)
+% Nomenclature
 % -----------------------------------------------------------------------------
-\usepackage{units}
-
-\newif\if@printeqref
-\newif\if@printpageref
-\newif\if@intoc
-\newif\if@compatibilitymode
-\DeclareOption{refeq}{\@printeqreftrue}
-\DeclareOption{norefeq}{\@printeqreffalse}
-\DeclareOption{refpage}{\@printpagereftrue}
-\DeclareOption{norefpage}{\@printpagereffalse}
-\DeclareOption{intoc}{\@intoctrue}
-\DeclareOption{notintoc}{\@intocfalse}
-\DeclareOption{compatible}{\@compatibilitymodetrue}
-\DeclareOption{noncompatible}{\@compatibilitymodefalse}
-\DeclareOption{prefix}{\def\nomprefix{a}}
-\DeclareOption{noprefix}{\def\nomprefix{}}
-\newif\if@loadcfg
-\DeclareOption{cfg}{\@loadcfgtrue}
-\DeclareOption{nocfg}{\@loadcfgfalse}
-\DeclareOption{english}{%
-  \def\eqdeclaration#1{, see equation\nobreakspace(#1)}%
-  \def\pagedeclaration#1{, page\nobreakspace#1}%
-  \def\nomname{Nomenclature}}
-\DeclareOption{german}{%
-  \def\eqdeclaration#1{, siehe Gleichung\nobreakspace(#1)}%
-  \def\pagedeclaration#1{, Seite\nobreakspace#1}%
-  \def\nomname{Symbolverzeichnis}}
-\ExecuteOptions{noncompatible,notintoc,norefeq,norefpage,prefix,cfg,english}
-\ProcessOptions\relax
-\if@compatibilitymode%
-    \def\@outputfileextension{.glo}%
-    \def\@inputfileextension{.gls}%
-\else%
-    \def\@outputfileextension{.nlo}%
-    \def\@inputfileextension{.nls}%
-\fi%
-\def\makenomenclature{%
-  \newwrite\@nomenclaturefile
-  \immediate\openout\@nomenclaturefile=\jobname\@outputfileextension
-  \def\@nomenclature{%
-    \@bsphack
-    \begingroup
-    \@sanitize
-    \@ifnextchar[%
-      {\@@@nomenclature}{\@@@nomenclature[\nomprefix]}}%
-  \typeout{Writing nomenclature file \jobname\@outputfileextension}%
-  \let\makenomenclature\@empty}
-\if@compatibilitymode\let\makeglossary\makenomenclature\fi%
-\def\nom@verb{\expandafter\strip@prefix\meaning}
-\def\nomenclature{\protect\@nomenclature}
-\def\@nomenclature{%
-  \@bsphack
-  \begingroup
-  \@sanitize
-  \@ifnextchar[%
-    {\@@nomenclature}{\@@nomenclature[\nomprefix]}}
-\def\@@nomenclature[#1]#2#3{\endgroup\@esphack}
-\def\@@@nomenclature[#1]#2#3{%
- \def\@tempa{#2}\def\@tempb{#3}%
- \protected@write\@nomenclaturefile{}%
-  {\string\nomenclatureentry{#1\nom@verb\@tempa @[{\nom@verb\@tempa}]%
-      \begingroup\nom@verb\@tempb\protect\nomeqref{\theequation}%
-        |nompageref}{\thepage}}%
- \endgroup
- \@esphack}
-
-\newcommand{\pagestarted}{0}
-\newsavebox\MessBox
-\def\nomgroup#1{%
-\ifthenelse{\not\equal{#1}{\switchnomitem}}{%
-		\ifthenelse{\not\equal{\pagestarted}{1}}{%
-			\renewcommand{\pagestarted}{1}%
-			\begin{lrbox}{\MessBox}%
-			\begin{minipage}{1\textwidth}%
-		}{}%
-	}{%
-		\ifthenelse{\equal{\pagestarted}{1}}{%
-			\end{minipage}\end{lrbox} %
-			\renewcommand{\pagestarted}{0}%
-		}{}%	
-	}%
-}
-
-\newdimen\nomlabelwidth
-\nomlabelwidth2.5cm\relax 
-\newdimen\nom@tempdim
-\def\printnomenclature#1{%
-\def\switchnomitem{#1}
-  \@ifnextchar[%
-    {\@printnomenclature}{\@printnomenclature[\nomlabelwidth]}}
-\def\@printnomenclature[#1]{%
-  \nom@tempdim#1\relax
-  \@input@{\jobname\@inputfileextension}}
-\if@compatibilitymode\let\printglossary\printnomenclature\fi%
-\def\nomlabel#1{#1\hfil}
-\def\nompreamble{}
-\def\nompostamble{}
-\def\nomentryend{}
-\newskip\nomitemsep
-\setlength{\nomitemsep}{-0.07cm}
-\def\thenomenclature{%
-  \nompreamble
-  \list{}{%
-    \labelwidth\nom@tempdim
-    \leftmargin\labelwidth
-    \advance\leftmargin\labelsep
-    \itemsep\nomitemsep
-    \let\makelabel\nomlabel}}
-\def\endthenomenclature{%
-		\ifthenelse{\equal{\pagestarted}{1}}{%
-			\end{minipage}\end{lrbox} %
-			\renewcommand{\pagestarted}{0}%
-		}{}%	
-  \endlist
-  \nompostamble} 
-\def\nomrefeq{\@printeqreftrue}
-\def\nomrefpage{\@printpagereftrue}
-\def\nomrefeqpage{\@printeqreftrue\@printpagereftrue}
-\def\nomnorefeq{\@printeqreffalse}
-\def\nomnorefpage{\@printpagereffalse}
-\def\nomnorefeqpage{\@printeqreffalse\@printpagereffalse}
-\def\nomeqref#1{\if@printeqref\eqdeclaration{#1}\fi\ignorespaces}
-\def\nompageref#1{\if@printpageref\pagedeclaration{#1}\fi%
-  \nomentryend\endgroup}
-\if@loadcfg
-  \InputIfFileExists{nomencl.cfg}{%
-    \typeout{Using the configuration file nomencl.cfg}}{}
-\fi
-
-\renewcommand{\nomname}{}
-
-\newcommand{\nomenunit}[1]{\hskip-0em\parbox{4em}{$\left[ #1 \right]$}}
+%%% Nomenclature
+\usepackage[intoc]{nomencl}
 \makenomenclature
+\renewcommand{\nomgroup}[1]{
+  \item[\bfseries
+  \ifstrequal{#1}{A}{\iflanguage{ngerman}{Abkürzungen}{Abbreviations}}{%
+    \ifstrequal{#1}{B}{\iflanguage{ngerman}{Lateinische Buchstaben}{Latin Letters}}{%
+      \ifstrequal{#1}{C}{\iflanguage{ngerman}{Griechische Buchstaben}{Greek Letters}}{%
+        \ifstrequal{#1}{D}{\iflanguage{ngerman}{Indizes}{Indices}}{%
+          }}}}
+  ]
+}
+\renewcommand{\nomname}{\iflanguage{ngerman}{Nomenklatur}{Nomenclature}}
+
 
 % -----------------------------------------------------------------------------
 % Hyperref (loaded last)
