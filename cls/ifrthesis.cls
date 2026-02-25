@@ -229,7 +229,7 @@
   \ifx\@ifrsupervisor\@empty
     \def\@ifrsupervisor{#1}%
   \else
-    \g@addto@macro\@ifrsupervisor{, #1}%
+    \g@addto@macro\@ifrsupervisor{,#1}%
   \fi
 }
 
@@ -334,7 +334,7 @@
                 \begin{tabular}{@{}r l@{}}
                     \iflanguage{ngerman}
                     {Betreuer}%
-                    {Supervisors}: 
+                    {Supervisor}: 
                     & \ifx\@ifrsupervisor\@empty
                         \textbf{No supervisors specified}%
                       \else
