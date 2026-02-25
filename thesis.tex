@@ -1,4 +1,4 @@
-\documentclass[english]{ifrthesis} % Use [english] for English version
+\documentclass[english]{./cls/ifrthesis} % Use [english] for English version
 
 
 % the preamble is intended to be used to add additional packages and define commands
@@ -22,9 +22,6 @@
 % Default frontmatter path
 \newcommand{\pathfrontmatter}[1]{./src/parts/frontmatter/#1}
 
-% Declaration page command
-\input{\pathfrontmatter{declaration/declaration_command.tex}}
-
 % Additional bibliography file
 \addbibresource{src/bib/references.bib}
 
@@ -40,7 +37,7 @@
 \cleardoublepage%
 
 % Declaration
-\makedeclaration{\ifrauthor}%
+\makedeclaration%
 \cleardoublepage%
 
 %Abstract
