@@ -1,0 +1,3 @@
+[submodule "src/parts/frontmatter/declaration"]
+	path = cls/declaration
+	url = https://github.com/iFR-Lehre/Thesis-Declaration.git
