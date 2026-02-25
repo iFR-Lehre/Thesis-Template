@@ -30,7 +30,14 @@
 % -----------------------------------------------------------------------------
 % Load base class with fixed options
 % -----------------------------------------------------------------------------
-\LoadClass[a4paper, 11pt, DIV=14, chapterprefix=false, BCOR=5mm, twoside, openright]{scrbook}
+\LoadClass[a4paper,
+            11pt,
+            DIV=14, % divisor for construction of type area
+            BCOR=5mm, % binding correction
+            twoside,
+            openright,
+            bibliography=totoc % include bibliography in table of contents
+            ]{scrbook}
 
 % Load the required language package
 \RequirePackage[\@ifrlang]{babel} 
@@ -44,10 +51,7 @@
 % -----------------------------------------------------------------------------
 % Font configuration
 % -----------------------------------------------------------------------------
-%\RequirePackage{lmodern}  % solves pixelated font problems
-%\RequirePackage{helvet}   % use helvetica font for sans serif
 %\renewcommand{\familydefault}{\sfdefault}
-%\RequirePackage[T1]{fontenc}
 \RequirePackage{newtxtext}
 \RequirePackage[varl,scaled=.9]{inconsolata}
 
@@ -55,233 +59,37 @@
 % Page layout and typography
 % -----------------------------------------------------------------------------
 \RequirePackage[defaultlines=3,all]{nowidow} % no orphan or widow lines
-%\RequirePackage[headings]{fullpage}
-%\RequirePackage[margin=1in]{geometry}
-\RequirePackage{setspace} % line spacing
-\RequirePackage{multicol} % for multicols
-\RequirePackage{todonotes} % for note taking
-
-% -----------------------------------------------------------------------------
-% Graphics and figures
-% -----------------------------------------------------------------------------
-\RequirePackage{graphicx}
-\RequirePackage{xcolor}
-\RequirePackage{pdfpages}   % insert pdfs
-\RequirePackage{subcaption} % for subfigure environment
-\RequirePackage{rotating}   % for sidewaysfigure environment
-\RequirePackage{pgfplots}
-\RequirePackage{tikz}
-\RequirePackage{float}
-
-% TikZ libraries
-\usetikzlibrary{
-    plotmarks,
-    shapes,
-    arrows.meta,
-    decorations.markings,
-    patterns,
-    calc
-}
-
-% -----------------------------------------------------------------------------
-% Mathematics
-% -----------------------------------------------------------------------------
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{amssymb}
-\RequirePackage{mathtools}
-\RequirePackage{tensor}   
-\RequirePackage{cancel}   
-\allowdisplaybreaks
 
 % -----------------------------------------------------------------------------
 % Tables
 % -----------------------------------------------------------------------------
-\RequirePackage{tabularx}
-\RequirePackage{booktabs}
-\RequirePackage{longtable}
-
-% Column type for title page
-\newcolumntype{K}[1]{>{\centering\arraybackslash}b{#1}}
-
-% -----------------------------------------------------------------------------
-% Code listings
-% -----------------------------------------------------------------------------
-\RequirePackage{verbatim} % for code
-\RequirePackage[numbered,framed]{matlab-prettifier} % for MATLAB code
-
-\lstset{
-    style              = Matlab-editor,
-    basicstyle         = \linespread{0.9}\small\mlttfamily,
-    escapechar         = ",
-    mlshowsectionrules = true,
-}
-
-\lstset{literate=%
-    {Ö}{{\"O}}1
-    {Ä}{{\"A}}1
-    {Ü}{{\"U}}1
-    {ß}{{\ss}}1
-    {ü}{{\"u}}1
-    {ä}{{\"a}}1
-    {ö}{{\"o}}1
-    {~}{{\textasciitilde}}1
-}
+\RequirePackage{tabularx} % necessary for table on title page
 
 % -----------------------------------------------------------------------------
 % Bibliography
 % -----------------------------------------------------------------------------
 \RequirePackage{csquotes}
-\RequirePackage[backend=biber,style=numeric]{biblatex}
-
-
-% -----------------------------------------------------------------------------
-% URL handling
-% -----------------------------------------------------------------------------
-\RequirePackage{url}
+\RequirePackage[backend=biber,
+                style=numeric,
+                sorting=none]{biblatex}
 
 % -----------------------------------------------------------------------------
-% Headers and footers
+% Nomenclature
 % -----------------------------------------------------------------------------
-\RequirePackage{scrlayer-scrpage} % header and footer
-\pagestyle{headings}
-
-% -----------------------------------------------------------------------------
-% Nomenclature (commented out as per original)
-% -----------------------------------------------------------------------------
-\usepackage{units}
-
-\newif\if@printeqref
-\newif\if@printpageref
-\newif\if@intoc
-\newif\if@compatibilitymode
-\DeclareOption{refeq}{\@printeqreftrue}
-\DeclareOption{norefeq}{\@printeqreffalse}
-\DeclareOption{refpage}{\@printpagereftrue}
-\DeclareOption{norefpage}{\@printpagereffalse}
-\DeclareOption{intoc}{\@intoctrue}
-\DeclareOption{notintoc}{\@intocfalse}
-\DeclareOption{compatible}{\@compatibilitymodetrue}
-\DeclareOption{noncompatible}{\@compatibilitymodefalse}
-\DeclareOption{prefix}{\def\nomprefix{a}}
-\DeclareOption{noprefix}{\def\nomprefix{}}
-\newif\if@loadcfg
-\DeclareOption{cfg}{\@loadcfgtrue}
-\DeclareOption{nocfg}{\@loadcfgfalse}
-\DeclareOption{english}{%
-  \def\eqdeclaration#1{, see equation\nobreakspace(#1)}%
-  \def\pagedeclaration#1{, page\nobreakspace#1}%
-  \def\nomname{Nomenclature}}
-\DeclareOption{german}{%
-  \def\eqdeclaration#1{, siehe Gleichung\nobreakspace(#1)}%
-  \def\pagedeclaration#1{, Seite\nobreakspace#1}%
-  \def\nomname{Symbolverzeichnis}}
-\ExecuteOptions{noncompatible,notintoc,norefeq,norefpage,prefix,cfg,english}
-\ProcessOptions\relax
-\if@compatibilitymode%
-    \def\@outputfileextension{.glo}%
-    \def\@inputfileextension{.gls}%
-\else%
-    \def\@outputfileextension{.nlo}%
-    \def\@inputfileextension{.nls}%
-\fi%
-\def\makenomenclature{%
-  \newwrite\@nomenclaturefile
-  \immediate\openout\@nomenclaturefile=\jobname\@outputfileextension
-  \def\@nomenclature{%
-    \@bsphack
-    \begingroup
-    \@sanitize
-    \@ifnextchar[%
-      {\@@@nomenclature}{\@@@nomenclature[\nomprefix]}}%
-  \typeout{Writing nomenclature file \jobname\@outputfileextension}%
-  \let\makenomenclature\@empty}
-\if@compatibilitymode\let\makeglossary\makenomenclature\fi%
-\def\nom@verb{\expandafter\strip@prefix\meaning}
-\def\nomenclature{\protect\@nomenclature}
-\def\@nomenclature{%
-  \@bsphack
-  \begingroup
-  \@sanitize
-  \@ifnextchar[%
-    {\@@nomenclature}{\@@nomenclature[\nomprefix]}}
-\def\@@nomenclature[#1]#2#3{\endgroup\@esphack}
-\def\@@@nomenclature[#1]#2#3{%
- \def\@tempa{#2}\def\@tempb{#3}%
- \protected@write\@nomenclaturefile{}%
-  {\string\nomenclatureentry{#1\nom@verb\@tempa @[{\nom@verb\@tempa}]%
-      \begingroup\nom@verb\@tempb\protect\nomeqref{\theequation}%
-        |nompageref}{\thepage}}%
- \endgroup
- \@esphack}
-
-\newcommand{\pagestarted}{0}
-\newsavebox\MessBox
-\def\nomgroup#1{%
-\ifthenelse{\not\equal{#1}{\switchnomitem}}{%
-		\ifthenelse{\not\equal{\pagestarted}{1}}{%
-			\renewcommand{\pagestarted}{1}%
-			\begin{lrbox}{\MessBox}%
-			\begin{minipage}{1\textwidth}%
-		}{}%
-	}{%
-		\ifthenelse{\equal{\pagestarted}{1}}{%
-			\end{minipage}\end{lrbox} %
-			\renewcommand{\pagestarted}{0}%
-		}{}%	
-	}%
-}
-
-\newdimen\nomlabelwidth
-\nomlabelwidth2.5cm\relax 
-\newdimen\nom@tempdim
-\def\printnomenclature#1{%
-\def\switchnomitem{#1}
-  \@ifnextchar[%
-    {\@printnomenclature}{\@printnomenclature[\nomlabelwidth]}}
-\def\@printnomenclature[#1]{%
-  \nom@tempdim#1\relax
-  \@input@{\jobname\@inputfileextension}}
-\if@compatibilitymode\let\printglossary\printnomenclature\fi%
-\def\nomlabel#1{#1\hfil}
-\def\nompreamble{}
-\def\nompostamble{}
-\def\nomentryend{}
-\newskip\nomitemsep
-\setlength{\nomitemsep}{-0.07cm}
-\def\thenomenclature{%
-  \nompreamble
-  \list{}{%
-    \labelwidth\nom@tempdim
-    \leftmargin\labelwidth
-    \advance\leftmargin\labelsep
-    \itemsep\nomitemsep
-    \let\makelabel\nomlabel}}
-\def\endthenomenclature{%
-		\ifthenelse{\equal{\pagestarted}{1}}{%
-			\end{minipage}\end{lrbox} %
-			\renewcommand{\pagestarted}{0}%
-		}{}%	
-  \endlist
-  \nompostamble} 
-\def\nomrefeq{\@printeqreftrue}
-\def\nomrefpage{\@printpagereftrue}
-\def\nomrefeqpage{\@printeqreftrue\@printpagereftrue}
-\def\nomnorefeq{\@printeqreffalse}
-\def\nomnorefpage{\@printpagereffalse}
-\def\nomnorefeqpage{\@printeqreffalse\@printpagereffalse}
-\def\nomeqref#1{\if@printeqref\eqdeclaration{#1}\fi\ignorespaces}
-\def\nompageref#1{\if@printpageref\pagedeclaration{#1}\fi%
-  \nomentryend\endgroup}
-\if@loadcfg
-  \InputIfFileExists{nomencl.cfg}{%
-    \typeout{Using the configuration file nomencl.cfg}}{}
-\fi
-
-\renewcommand{\nomname}{}
-
-\newcommand{\nomenunit}[1]{\hskip-0em\parbox{4em}{$\left[ #1 \right]$}}
+%%% Nomenclature
+\usepackage[intoc]{nomencl}
 \makenomenclature
+\renewcommand{\nomgroup}[1]{
+  \item[\bfseries
+  \ifstrequal{#1}{A}{\iflanguage{ngerman}{Abkürzungen}{Abbreviations}}{%
+    \ifstrequal{#1}{B}{\iflanguage{ngerman}{Lateinische Buchstaben}{Latin Letters}}{%
+      \ifstrequal{#1}{C}{\iflanguage{ngerman}{Griechische Buchstaben}{Greek Letters}}{%
+        \ifstrequal{#1}{D}{\iflanguage{ngerman}{Indizes}{Indices}}{%
+          }}}}
+  ]
+}
+\renewcommand{\nomname}{\iflanguage{ngerman}{Nomenklatur}{Nomenclature}}
+
 
 % -----------------------------------------------------------------------------
 % Hyperref (loaded last)
@@ -304,7 +112,7 @@
   \ifx\@ifrsupervisor\@empty
     \def\@ifrsupervisor{#1}%
   \else
-    \g@addto@macro\@ifrsupervisor{, #1}%
+    \g@addto@macro\@ifrsupervisor{,#1}%
   \fi
 }
 
@@ -327,40 +135,35 @@
 % -----------------------------------------------------------------------------
 
 \newcommand{\MLUniversity}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Universität Stuttgart}%
     {University of Stuttgart}%
 }
 \newcommand{\MLInstitute}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Institut für Flugmechanik und Flugregelung}%
     {Institute of Flight Mechanics and Controls}%
 }
 \newcommand{\MLMastersthesis}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Masterarbeit}%
     {Master's Thesis}%
 }
 \newcommand{\MLBachelorsthesis}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Bachelorarbeit}%
     {Bachelor's Thesis}%
 }
 \newcommand{\MLAbstract}{%
-    \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
     {Kurzfassung}%
     {Abstract}%
 }
 \newcommand{\MLOtherlangAbstract}[1]{%
-  \ifthenelse{\equal{\@ifrlang}{ngerman}}%
+    \iflanguage{ngerman}%
   {\begin{otherlanguage}{english}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
   {\begin{otherlanguage}{ngerman}\begingroup\renewcommand{\cleardoublepage}{}\renewcommand{\clearpage}{}\chapter*{\MLAbstract}\endgroup#1\end{otherlanguage}}%
 }
-
-% -----------------------------------------------------------------------------
-% Include blindtext for testing
-% -----------------------------------------------------------------------------
-\RequirePackage{blindtext}
 
 % -----------------------------------------------------------------------------
 % List of figures and tables
@@ -383,6 +186,10 @@
 % -----------------------------------------------------------------------------
 % Title page creation
 % -----------------------------------------------------------------------------
+
+% Column type for title page
+\newcolumntype{K}[1]{>{\centering\arraybackslash}b{#1}}
+
 \renewcommand{\maketitle}{%
     \begin{titlepage}
         \vspace*{2cm}
@@ -408,9 +215,9 @@
                 \vspace{3cm}
                 {\large
                 \begin{tabular}{@{}r l@{}}
-                    \ifdefstring{\@ifrlang}{ngerman}%
-                    {Vorgesetzter}%
-                    {Supervisors}: 
+                    \iflanguage{ngerman}
+                    {Betreuer}%
+                    {Supervisor}: 
                     & \ifx\@ifrsupervisor\@empty
                         \textbf{No supervisors specified}%
                       \else
@@ -419,8 +226,8 @@
                         }%
                       \fi
                     \\
-                    \ifdefstring{\@ifrlang}{ngerman}%
-                    {Prüfen}%
+                    \iflanguage{ngerman}
+                    {Prüfer}%
                     {Examiner}: & \@ifrexaminer
                 \end{tabular}
                 }

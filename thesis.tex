@@ -8,9 +8,9 @@
 \ifrtitle{Your Thesis Title Here}
 \ifrauthor{Your Name Here}
 \ifrtype{Master's Thesis}
-\ifrsupervisor{ Supervisor 1}
+\ifrsupervisor{Supervisor 1}
 \ifrsupervisor{Supervisor 2}
-\ifrsupervisor{Supervisor 4}
+\ifrsupervisor{Supervisor 3}
 \ifrexaminer{Examiner}
 
 % Default graphics path
@@ -36,12 +36,22 @@
 \maketitle%
 \cleardoublepage%
 
+% Scope
+\phantomsection
+\addcontentsline{toc}{chapter}{\iflanguage{ngerman}{Aufgabenstellung}{Scope}}
+\includepdf{\pathfrontmatter{scope.pdf}}
+\cleardoublepage
+
 % Declaration
 \makedeclaration%
 \cleardoublepage%
 
 %Abstract
 \input{\pathfrontmatter{abstract.tex}}
+\cleardoublepage%
+
+% Acknowledgements
+\input{\pathfrontmatter{acknowledgements.tex}}
 \cleardoublepage%
 
 % Table of contents
@@ -54,8 +64,9 @@
 \cleardoublepage%
 \makelistoftables%
 
-% For automatic nomenclature
-\input{\pathfrontmatter{nomenclature.tex}}
+% Nomenclature
+\printnomenclature
+\cleardoublepage
 
 %=============================================================================
 % Mainmatter
@@ -70,10 +81,9 @@
 %=============================================================================
 % Backmatter
 %=============================================================================
-\backmatter%
 
 % Bibliography
-\printbibliography[heading=bibintoc]%
+\printbibliography%
 
 % Appendix
 \appendix

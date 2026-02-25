@@ -1,11 +1,11 @@
 \chapter{How to add formatted code}
 
-\subsection{Basic Example}
+\section{Basic Example}
 This is some random MATLAB code. You can reference it just like "Listing~\ref{lst:matlabCode}" 
 or "Listing~\ref{lst:inlineExample}".
 
 
-\subsubsection*{Example 1: Loading from External File}
+\subsection*{Example 1: Loading from External File}
 The following code is loaded from an external MATLAB file, showing only lines 7-20:
 
 \lstinputlisting[caption={aMatlabFile.m}, 
@@ -13,7 +13,7 @@ The following code is loaded from an external MATLAB file, showing only lines 7-
                  linerange={7-20}, 
                  firstnumber=7]{src/code/aMatlabFile.m}
 
-\subsubsection*{Example 2: Inline Code Block}
+\subsection*{Example 2: Inline Code Block}
 You can also write code directly in your document:
 \begin{lstlisting}[
     caption = {Simple MATLAB function example},
@@ -33,6 +33,6 @@ function y = myFunction(x)
 end
 \end{lstlisting}
 
-\subsection{Creating Custom Formats}
+\section{Creating Custom Formats}
             
 You can create your own custom formats by defining new styles. Comprehensive documentation and examples for the listings package can be found at: \url{https://ctan.org/pkg/listings}.
