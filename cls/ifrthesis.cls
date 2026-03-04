@@ -229,7 +229,7 @@
                 {\large
                 \begin{tabular}{@{}r l@{}}
                     \iflanguage{ngerman}
-                    {Betreuer}%
+                    {Betreuer/Betreuerin}%
                     {Supervisor}: 
                     & \ifx\@ifrsupervisor\@empty
                         \textbf{No supervisors specified}%
@@ -240,7 +240,7 @@
                       \fi
                     \\
                     \iflanguage{ngerman}
-                    {Prüfer}%
+                    {Prüfer/Prüferin}%
                     {Examiner}: & \@ifrexaminer
                 \end{tabular}
                 }
