@@ -101,7 +101,19 @@
 % -----------------------------------------------------------------------------
 \newcommand{\ifrtitle}[1]{\def\@ifrtitle{#1}}
 \newcommand{\ifrauthor}[1]{\def\@ifrauthor{#1}}
-\newcommand{\ifrtype}[1]{\def\@ifrtype{#1}}
+\def\@ifrtype{\MLBachelorsthesis} % Default to Bachelor's thesis if not specified
+\newcommand{\ifrtype}[1]{%
+  \ifthenelse{\equal{#1}{B}}{%
+    \def\@ifrtype{\MLBachelorsthesis}%
+  }{%
+    \ifthenelse{\equal{#1}{M}}{%
+      \def\@ifrtype{\MLMastersthesis}%
+    }{%
+      \def\@ifrtype{#1}%
+    }%
+  }%
+}
+\def\@ifryear{\the\year} % Default to current year if not specified
 \newcommand{\ifrexaminer}[1]{\def\@ifrexaminer{#1}}
 
 % Initialize supervisor variable as empty
