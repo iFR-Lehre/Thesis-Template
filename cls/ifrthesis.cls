@@ -114,6 +114,7 @@
   }%
 }
 \def\@ifryear{\the\year} % Default to current year if not specified
+\newcommand{\ifryear}[1]{\def\@ifryear{#1}}
 \newcommand{\ifrexaminer}[1]{\def\@ifrexaminer{#1}}
 
 % Initialize supervisor variable as empty
@@ -223,7 +224,7 @@
                 \vspace{1cm}
                 \Large\textbf{\@ifrtype}\\
                 \vspace{0.5cm}
-                \Large\textbf{\the\year}\\
+                \Large\textbf{\@ifryear}\\
                 \vspace{3cm}
                 {\large
                 \begin{tabular}{@{}r l@{}}
