@@ -1,5 +1,4 @@
-\documentclass[english]{./cls/ifrthesis} % Use [english] for English version
-
+\documentclass[english]{./cls/ifrthesis} % Use [english] for English version and [ngerman] for German version
 
 % the preamble is intended to be used to add additional packages and define commands
 \input{preamble.tex}
@@ -37,10 +36,10 @@
 \maketitle%
 \cleardoublepage%
 
-% Scope
+% Task Description
 \phantomsection
-\addcontentsline{toc}{chapter}{\iflanguage{ngerman}{Aufgabenstellung}{Scope}}
-\includepdf{\pathfrontmatter{scope.pdf}}
+\addcontentsline{toc}{chapter}{\iflanguage{ngerman}{Aufgabenstellung}{Task Description}}
+\includepdf{\pathfrontmatter{task_description.pdf}}
 \cleardoublepage
 
 % Declaration
